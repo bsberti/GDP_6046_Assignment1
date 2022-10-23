@@ -23,18 +23,17 @@ protected:
 	FMOD_RESULT last_result_;
 	FMOD::System* system_;
 
-	std::map<std::string, ChannelGroup*> channel_groups_;
-	
-	std::map<std::string, FMOD::Sound*> sounds_;
-	std::map<std::string, FMOD::DSP*> dsps_;
+	std::map<std::string, ChannelGroup*> mChannelGroups;	
+	std::map<std::string, FMOD::Sound*> mSounds;
+	std::map<std::string, FMOD::DSP*> mDSPs;
 
 	bool is_okay(const bool show_error = true) const;
 
 public:
 	//lifecycle
 	FModManager();
-	bool initialize(const int number_of_channels, const int system_flags);
-	void shutdown();
+	bool Initialize(const int number_of_channels, const int system_flags);
+	void Shutdown();
 
 	//channel groups
 	bool create_channel_group(const std::string& name);

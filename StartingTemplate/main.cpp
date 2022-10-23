@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 	ImGui::StyleColorsDark();
 
 	//initialize fmod with max channels
-	if (!fmod_manager.initialize(max_channels, FMOD_INIT_NORMAL))
+	if (!fmod_manager.Initialize(max_channels, FMOD_INIT_NORMAL))
 		return -1;
 
 	//create channel groups
@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
 		glfwSwapBuffers(window);
 	}
 
-	fmod_manager.shutdown();
+	fmod_manager.Shutdown();
 
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
