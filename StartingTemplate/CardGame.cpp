@@ -33,7 +33,7 @@ void howToPlay() {
 }
 
 void CardGame::PlayerLossLifes() {
-	std::cout << "Wrong guess!!! You still have " << lifes << " more guesses!\n";
+	std::cout << "Wrong guess!!! You have " << lifes << " more attempts!\n";
 }
 
 CardGame::~CardGame() {
@@ -59,7 +59,7 @@ void CardGame::ShowCards() {
 	std::cout << "First Card:\n";
 	std::cout << currentCard << "\n";
 	std::cout << "Second Card:\n";
-	std::cout << "          ???          \n\n";
+	std::cout << "???\n\n";
 	std::cout << "Now guess if the second card is higher or lower than the first card\n";
 }
 

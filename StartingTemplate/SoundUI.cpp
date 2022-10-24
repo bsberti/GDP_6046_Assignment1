@@ -99,7 +99,7 @@ void SoundUI::render()
 
 	if (!DisplayChannelPitch("master")) {
 		// Something went wrong, what now?
-	}
+	} 
 
 	if (!DisplayChannelPitchDSP("master")) {
 		// Something went wrong, what now?

@@ -1,0 +1,22 @@
+<soundlist>
+  <sound category="music">
+    <name>bg</name>
+    <path>./sounds/music/bg.wav</path>
+    <mode>2</mode>
+  </sound>
+  <sound category="effect">
+    <name>card-shuffling</name>
+    <path>./sounds/fx/card-shuffling.mp3</path>
+    <mode>0</mode>
+  </sound>
+  <sound category="effect">
+    <name>draw-card</name>
+    <path>./sounds/fx/draw-card.wav</path>
+    <mode>0</mode>
+  </sound>
+  <sound category="effect">
+    <name>victory</name>
+    <path>./sounds/fx/victory.mp3</path>
+    <mode>0</mode>
+  </sound>
+</soundlist>

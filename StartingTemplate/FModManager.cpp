@@ -1,9 +1,10 @@
 ﻿#include "FModManager.h"
 
+
+
 bool FModManager::is_okay(const bool show_error) const
 {
-	if (last_result_ != FMOD_OK)
-	{
+	if (last_result_ != FMOD_OK) {
 		printf("fmod error: #%d-%s\n", last_result_, FMOD_ErrorString(last_result_));
 	}
 
@@ -49,6 +50,69 @@ void FModManager::Shutdown() {
 		system_->release();
 		system_ = nullptr;
 	}
+}
+
+int FModManager::LoadSounds() {
+	//Load all sounds
+	pugi::xml_parse_result result = soundListDoc.load_file("sounds/soundList.xml");
+	if (!result) {
+		printf("Failed to load 'soundList.xml'\n");
+		return -5;
+	}
+
+	pugi::xml_object_range<pugi::xml_node_iterator> sounds = soundListDoc.child("soundlist").children();
+	if (sounds.empty()) {
+		printf("There is no sounds in the soundList\n");
+		return -5;
+	}
+
+	pugi::xml_node_iterator soundIt;
+	for (soundIt = sounds.begin(); soundIt != sounds.end(); soundIt++) {
+		pugi::xml_node soundNode = *soundIt;
+		
+		MySound* currentSound = new MySound();
+		pugi::xml_attribute category = soundNode.attribute("caregory");
+		currentSound->category = category.value();
+
+		pugi::xml_node_iterator soundInfoIt;
+		for (soundInfoIt = soundNode.children().begin(); 
+			soundInfoIt != soundNode.children().end(); 
+			soundInfoIt++) {
+			pugi::xml_node soundInfoNode = *soundInfoIt;
+
+			printf(soundInfoNode.name());
+			printf(soundInfoNode.child_value());
+
+			std::string currentNodeName = soundInfoNode.name();
+			if (currentNodeName == "name")
+				currentSound->name = soundInfoNode.child_value();
+
+			if (currentNodeName == "path")
+				currentSound->path = soundInfoNode.child_value();
+
+			if (currentNodeName == "mode")
+				currentSound->mode = (int)soundInfoNode.child_value();
+			
+		}
+
+		//create sounds object
+		if (!create_sound(currentSound->name, currentSound->path, currentSound->mode))
+			return -5;
+	}
+
+	
+	
+
+	if (!create_sound("card-shuffling", "./sounds/fx/card-shuffling.mp3", FMOD_DEFAULT))
+		return -5;
+
+	if (!create_sound("draw-card", "./sounds/fx/draw-card.wav", FMOD_DEFAULT))
+		return -5;
+
+	if (!create_sound("victory", "./sounds/fx/victory.mp3", FMOD_DEFAULT))
+		return -5;
+
+	return 1;
 }
 
 // Create a new channel Group and use the name as a key for the MAP
@@ -234,7 +298,7 @@ bool FModManager::remove_dsp_effect(const std::string& channel_group_name, const
 }
 
 
-bool FModManager::create_sound(const std::string& name, const std::string& path, const int mode)
+bool FModManager::create_sound(const std::string& name, const std::string& path, FMOD_MODE mode)
 {
 	FMOD::Sound* sound;
 	last_result_ = system_->createSound(path.c_str(), mode, nullptr, &sound);

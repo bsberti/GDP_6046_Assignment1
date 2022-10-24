@@ -113,18 +113,10 @@ int main(int argc, char* argv[])
 	if(!fmod_manager.set_channel_group_parent("music", "master") || ! fmod_manager.set_channel_group_parent("fx", "master"))
 		return -4;
 
-	//create sounds object
-	if(!fmod_manager.create_sound("bg", "./sounds/music/bg.wav", FMOD_LOOP_NORMAL))
+	// Load XML soundList and create sounds
+	if (fmod_manager.LoadSounds() != 0) {
 		return -5;
-
-	if (!fmod_manager.create_sound("card-shuffling", "./sounds/fx/card-shuffling.mp3", FMOD_DEFAULT))
-		return -5;
-
-	if (!fmod_manager.create_sound("draw-card", "./sounds/fx/draw-card.wav", FMOD_DEFAULT))
-		return -5;
-
-	if (!fmod_manager.create_sound("victory", "./sounds/fx/victory.mp3", FMOD_DEFAULT))
-		return -5;
+	}
 	
 	//play our bg sound
 	if(!fmod_manager.play_sound("bg", "music"))
