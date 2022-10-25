@@ -15,6 +15,7 @@ public:
 		FMOD::ChannelGroup* group_ptr;
 		float current_pan;
 		float dsp_pitch;
+		float echo;
 
 		ChannelGroup() : group_ptr(nullptr), current_pan(0.0f), dsp_pitch(1.0f) {}
 	};

@@ -1,5 +1,10 @@
 <soundlist>
   <sound category="music">
+    <name>piano-bg</name>
+    <path>./sounds/music/piano-background-1.wav</path>
+    <mode>2</mode>
+  </sound>
+  <sound category="music">
     <name>bg</name>
     <path>./sounds/music/bg.wav</path>
     <mode>2</mode>

@@ -79,10 +79,7 @@ int FModManager::LoadSounds() {
 			soundInfoIt != soundNode.children().end(); 
 			soundInfoIt++) {
 			pugi::xml_node soundInfoNode = *soundInfoIt;
-
-			printf(soundInfoNode.name());
-			printf(soundInfoNode.child_value());
-
+			
 			std::string currentNodeName = soundInfoNode.name();
 			if (currentNodeName == "name")
 				currentSound->name = soundInfoNode.child_value();
@@ -91,8 +88,7 @@ int FModManager::LoadSounds() {
 				currentSound->path = soundInfoNode.child_value();
 
 			if (currentNodeName == "mode")
-				currentSound->mode = (int)soundInfoNode.child_value();
-			
+				currentSound->mode = std::stoi(soundInfoNode.child_value());
 		}
 
 		//create sounds object
@@ -100,19 +96,7 @@ int FModManager::LoadSounds() {
 			return -5;
 	}
 
-	
-	
-
-	if (!create_sound("card-shuffling", "./sounds/fx/card-shuffling.mp3", FMOD_DEFAULT))
-		return -5;
-
-	if (!create_sound("draw-card", "./sounds/fx/draw-card.wav", FMOD_DEFAULT))
-		return -5;
-
-	if (!create_sound("victory", "./sounds/fx/victory.mp3", FMOD_DEFAULT))
-		return -5;
-
-	return 1;
+	return 0;
 }
 
 // Create a new channel Group and use the name as a key for the MAP
@@ -132,9 +116,7 @@ bool FModManager::create_channel_group(const std::string& name)
 	return true;
 }
 
-
-bool FModManager::find_channel_group(const std::string& name, ChannelGroup** channel_group)
-{
+bool FModManager::find_channel_group(const std::string& name, ChannelGroup** channel_group) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end()) {
 		return false;
@@ -145,8 +127,7 @@ bool FModManager::find_channel_group(const std::string& name, ChannelGroup** cha
 	return true;
 }
 
-void FModManager::remove_channel_group(const std::string& name)
-{
+void FModManager::remove_channel_group(const std::string& name) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end())
 	{
@@ -157,8 +138,7 @@ void FModManager::remove_channel_group(const std::string& name)
 	mChannelGroups.erase(iterator);
 }
 
-bool FModManager::set_channel_group_parent(const std::string& child_name, const std::string& parent_name)
-{
+bool FModManager::set_channel_group_parent(const std::string& child_name, const std::string& parent_name) {
 	const auto child_group = mChannelGroups.find(child_name);
 	const auto parent_group = mChannelGroups.find(parent_name);
 
@@ -172,8 +152,7 @@ bool FModManager::set_channel_group_parent(const std::string& child_name, const 
 	return true;
 }
 
-bool FModManager::get_channel_group_volume(const std::string& name, float* volume)
-{
+bool FModManager::get_channel_group_volume(const std::string& name, float* volume) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end())
 	{
@@ -183,8 +162,7 @@ bool FModManager::get_channel_group_volume(const std::string& name, float* volum
 	return is_okay(iterator->second->group_ptr->getVolume(volume));
 }
 
-bool FModManager::set_channel_group_volume(const std::string& name, float volume)
-{
+bool FModManager::set_channel_group_volume(const std::string& name, float volume) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end())
 	{
@@ -194,8 +172,7 @@ bool FModManager::set_channel_group_volume(const std::string& name, float volume
 	return is_okay(iterator->second->group_ptr->setVolume(volume));
 }
 
-bool FModManager::get_channel_group_pan(const std::string& name, float* pan)
-{
+bool FModManager::get_channel_group_pan(const std::string& name, float* pan) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end())
 	{
@@ -207,8 +184,7 @@ bool FModManager::get_channel_group_pan(const std::string& name, float* pan)
 	return true;
 }
 
-bool FModManager::set_channel_group_pan(const std::string& name, const float pan)
-{
+bool FModManager::set_channel_group_pan(const std::string& name, const float pan) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end())
 	{
@@ -223,8 +199,7 @@ bool FModManager::set_channel_group_pan(const std::string& name, const float pan
 	return true;
 }
 
-bool FModManager::get_channel_group_enabled(const std::string& name, bool* enabled)
-{
+bool FModManager::get_channel_group_enabled(const std::string& name, bool* enabled) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end())
 	{
@@ -241,8 +216,7 @@ bool FModManager::get_channel_group_enabled(const std::string& name, bool* enabl
 	return true;
 }
 
-bool FModManager::set_channel_group_enabled(const std::string& name, bool enabled)
-{
+bool FModManager::set_channel_group_enabled(const std::string& name, bool enabled) {
 	const auto iterator = mChannelGroups.find(name);
 	if (iterator == mChannelGroups.end())
 	{
@@ -257,8 +231,7 @@ bool FModManager::set_channel_group_enabled(const std::string& name, bool enable
 	return true;
 }
 
-bool FModManager::add_dsp_effect(const std::string& channel_group_name, const std::string& effect_name)
-{
+bool FModManager::add_dsp_effect(const std::string& channel_group_name, const std::string& effect_name) {
 	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
 	const auto dsp_effect_iterator = mDSPs.find(effect_name);
 	if (channel_group_iterator == mChannelGroups.end() || dsp_effect_iterator == mDSPs.end())
@@ -280,8 +253,7 @@ bool FModManager::add_dsp_effect(const std::string& channel_group_name, const st
 	return true;
 }
 
-bool FModManager::remove_dsp_effect(const std::string& channel_group_name, const std::string& effect_name)
-{
+bool FModManager::remove_dsp_effect(const std::string& channel_group_name, const std::string& effect_name) {
 	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
 	const auto dsp_effect_iterator = mDSPs.find(effect_name);
 	if (channel_group_iterator == mChannelGroups.end() || dsp_effect_iterator == mDSPs.end())
@@ -297,9 +269,7 @@ bool FModManager::remove_dsp_effect(const std::string& channel_group_name, const
 	return true;
 }
 
-
-bool FModManager::create_sound(const std::string& name, const std::string& path, FMOD_MODE mode)
-{
+bool FModManager::create_sound(const std::string& name, const std::string& path, FMOD_MODE mode) {
 	FMOD::Sound* sound;
 	last_result_ = system_->createSound(path.c_str(), mode, nullptr, &sound);
 	if (!is_okay())
@@ -312,8 +282,7 @@ bool FModManager::create_sound(const std::string& name, const std::string& path,
 	return true;
 }
 
-bool FModManager::play_sound(const std::string& sound_name, const std::string& channel_group_name)
-{
+bool FModManager::play_sound(const std::string& sound_name, const std::string& channel_group_name) {
 	const auto sound_iterator = mSounds.find(sound_name);
 	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
 
@@ -342,8 +311,7 @@ bool FModManager::play_sound(const std::string& sound_name, const std::string& c
 
 // For DSP Creation we need a name for the map key, a DSP TYPE and the value
 // values can be blank and set as default
-bool FModManager::create_dsp(const std::string& name, FMOD_DSP_TYPE dsp_type, const float value)
-{
+bool FModManager::create_dsp(const std::string& name, FMOD_DSP_TYPE dsp_type, const float value) {
 	FMOD::DSP* dsp;
 
 	//figure out the kind we are creating

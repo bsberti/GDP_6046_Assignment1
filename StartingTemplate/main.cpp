@@ -26,16 +26,6 @@ void key_callback(GLFWwindow* window, const int key, int scancode, const int act
 		g_CardGame.Shuffle();
 	}
 
-	if(key == GLFW_KEY_1 && action == GLFW_PRESS)
-	{
-		fmod_manager.add_dsp_effect("master", "echo");
-	}
-
-	if (key == GLFW_KEY_2 && action == GLFW_PRESS)
-	{
-		fmod_manager.remove_dsp_effect("master", "echo");
-	}
-
 	if (key == GLFW_KEY_3 && action == GLFW_PRESS)
 	{
 		fmod_manager.add_dsp_effect("master", "dsp_pitch");
@@ -128,6 +118,7 @@ int main(int argc, char* argv[])
 
 	//create sound ui
 	SoundUI sound_ui(&fmod_manager);
+	sound_ui.echo_enabled = true;
 
 	g_CardGame.Initialize(1, 50);
 
