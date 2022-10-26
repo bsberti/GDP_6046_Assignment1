@@ -16,8 +16,21 @@ public:
 		float current_pan;
 		float dsp_pitch;
 		float echo;
+		float fader;
 
-		ChannelGroup() : group_ptr(nullptr), current_pan(0.0f), dsp_pitch(1.0f) {}
+		bool bEcho, bFader;
+		bool echo_enabled;
+		bool fader_enabled;
+
+		ChannelGroup() : group_ptr(nullptr), 
+			current_pan(0.0f), 
+			dsp_pitch(1.0f), 
+			echo(500.0f), 
+			fader(0.0f),
+			bEcho(false),
+			bFader(false),
+			echo_enabled(false),
+			fader_enabled(false) {}
 	};
 
 	struct MySound {
@@ -54,6 +67,7 @@ public:
 	bool find_channel_group(const std::string& name, ChannelGroup** channel_group);
 	void remove_channel_group(const std::string& name);
 	bool set_channel_group_parent(const std::string& child_name, const std::string& parent_name);
+	
 	bool get_channel_group_volume(const std::string& name, float* volume);
 	bool set_channel_group_volume(const std::string& name, float volume);
 
@@ -62,8 +76,6 @@ public:
 
 	bool get_channel_group_enabled(const std::string& name, bool* enabled);
 	bool set_channel_group_enabled(const std::string& name, bool enabled);
-	bool add_dsp_effect(const std::string& channel_group_name, const std::string& effect_name);
-	bool remove_dsp_effect(const std::string& channel_group_name, const std::string& effect_name);
 
 	//sounds
 	bool create_sound(const std::string& name, const std::string& path, FMOD_MODE mode);
@@ -72,4 +84,6 @@ public:
 	//dsp
 	bool create_dsp(const std::string& name, FMOD_DSP_TYPE dsp_type, const float value);
 	bool get_dsp(const std::string& name, FMOD::DSP** dsp);
+	bool add_dsp_effect(const std::string& channel_group_name, const std::string& effect_name);
+	bool remove_dsp_effect(const std::string& channel_group_name, const std::string& effect_name);
 };

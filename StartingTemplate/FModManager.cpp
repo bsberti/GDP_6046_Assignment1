@@ -231,44 +231,6 @@ bool FModManager::set_channel_group_enabled(const std::string& name, bool enable
 	return true;
 }
 
-bool FModManager::add_dsp_effect(const std::string& channel_group_name, const std::string& effect_name) {
-	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
-	const auto dsp_effect_iterator = mDSPs.find(effect_name);
-	if (channel_group_iterator == mChannelGroups.end() || dsp_effect_iterator == mDSPs.end())
-	{
-		return false;
-	}
-
-	int num_dsp;
-	if (!is_okay(channel_group_iterator->second->group_ptr->getNumDSPs(&num_dsp)))
-	{
-		return false;
-	}
-
-	if (!is_okay(channel_group_iterator->second->group_ptr->addDSP(num_dsp, dsp_effect_iterator->second)))
-	{
-		return false;
-	}
-
-	return true;
-}
-
-bool FModManager::remove_dsp_effect(const std::string& channel_group_name, const std::string& effect_name) {
-	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
-	const auto dsp_effect_iterator = mDSPs.find(effect_name);
-	if (channel_group_iterator == mChannelGroups.end() || dsp_effect_iterator == mDSPs.end())
-	{
-		return false;
-	}
-
-	if (!is_okay(channel_group_iterator->second->group_ptr->removeDSP(dsp_effect_iterator->second)))
-	{
-		return false;
-	}
-
-	return true;
-}
-
 bool FModManager::create_sound(const std::string& name, const std::string& path, FMOD_MODE mode) {
 	FMOD::Sound* sound;
 	last_result_ = system_->createSound(path.c_str(), mode, nullptr, &sound);
@@ -338,6 +300,44 @@ bool FModManager::get_dsp(const std::string& name, FMOD::DSP** dsp)
 	}
 
 	*dsp = dsp_effect_iterator->second;
+
+	return true;
+}
+
+bool FModManager::add_dsp_effect(const std::string& channel_group_name, const std::string& effect_name) {
+	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
+	const auto dsp_effect_iterator = mDSPs.find(effect_name);
+	if (channel_group_iterator == mChannelGroups.end() || dsp_effect_iterator == mDSPs.end())
+	{
+		return false;
+	}
+
+	int num_dsp;
+	if (!is_okay(channel_group_iterator->second->group_ptr->getNumDSPs(&num_dsp)))
+	{
+		return false;
+	}
+
+	if (!is_okay(channel_group_iterator->second->group_ptr->addDSP(num_dsp, dsp_effect_iterator->second)))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool FModManager::remove_dsp_effect(const std::string& channel_group_name, const std::string& effect_name) {
+	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
+	const auto dsp_effect_iterator = mDSPs.find(effect_name);
+	if (channel_group_iterator == mChannelGroups.end() || dsp_effect_iterator == mDSPs.end())
+	{
+		return false;
+	}
+
+	if (!is_okay(channel_group_iterator->second->group_ptr->removeDSP(dsp_effect_iterator->second)))
+	{
+		return false;
+	}
 
 	return true;
 }

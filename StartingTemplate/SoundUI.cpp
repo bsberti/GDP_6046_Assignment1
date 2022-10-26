@@ -3,6 +3,14 @@
 
 #include <string>
 
+SoundUI::SoundUI(FModManager* f_manager) {
+	fmod_manager_ = f_manager;
+
+	masterVolume = 0.f;
+	musicVolume = 0.f;
+	fxVolume = 0.f;
+}
+
 bool SoundUI::DisplayChannelVolume(std::string channelName)
 {
 	FModManager::ChannelGroup* channel_group;
@@ -10,16 +18,16 @@ bool SoundUI::DisplayChannelVolume(std::string channelName)
 		return false;
 	}
 
-	float current_volume;
-	if (!fmod_manager_->get_channel_group_volume(channelName, &current_volume)) {
+	float currentVolume;
+	if (!fmod_manager_->get_channel_group_volume(channelName, &currentVolume)) {
 		return false;
 	}
-	current_volume *= 100;
-	ImGui::SliderFloat("Volume", &current_volume, 0.0f, 100.0f, "%.0f");
-	current_volume /= 100;
 
-	// WARNING: volume range (0.0-1.0) //dont go to high above 1 (you can hurt your hardware)
-	if (!fmod_manager_->set_channel_group_volume(channelName, current_volume)) {
+	currentVolume *= 100;
+	ImGui::SliderFloat((channelName + " Volume").c_str(), &currentVolume, 0.0f, 100.0f, "%.0f");
+	currentVolume /= 100;
+
+	if (!fmod_manager_->set_channel_group_volume(channelName, currentVolume)) {
 		return false;
 	}
 
@@ -46,7 +54,7 @@ bool SoundUI::DisplayChannelPan(std::string channelName) {
 
 	ImGui::SliderFloat("Pan", &channel_group->current_pan, -1.0f, 1.0f, " % .2f");
 
-	if (!fmod_manager_->set_channel_group_pan(channelName, channel_group->current_pan)) 	{
+	if (!fmod_manager_->set_channel_group_pan(channelName, channel_group->current_pan)) {
 		return false;
 	}
 
@@ -62,7 +70,7 @@ bool SoundUI::DisplayChannelPitch(std::string channelName)
 
 	float current_pitch;
 	channel_group->group_ptr->getPitch(&current_pitch);
-	ImGui::SliderFloat("Pitch (no dsp)", &current_pitch, 0.5f, 2.0f, "%.2f");
+	ImGui::SliderFloat((channelName + " Pitch").c_str(), &current_pitch, 0.5f, 2.0f, "%.2f");
 	channel_group->group_ptr->setPitch(current_pitch);
 
 	return true;
@@ -90,7 +98,7 @@ bool SoundUI::DisplayChannelEcho(std::string channelName) {
 		return false;
 	}
 
-	ImGui::SliderFloat("echo", &channel_group->echo, 0.5f, 2.0f, "%.2f");
+	ImGui::SliderFloat((channelName + " echo").c_str(), &channel_group->echo, 10.f, 5000.0f, "%.2f");
 	FMOD::DSP* dsp;
 	if (!fmod_manager_->get_dsp("echo", &dsp)) {
 		return false;
@@ -98,15 +106,49 @@ bool SoundUI::DisplayChannelEcho(std::string channelName) {
 	dsp->setParameterFloat(0, channel_group->echo);
 
 	ImGui::SameLine();
-	ImGui::Checkbox(("##" + channelName + "_echo").c_str(), &echo_enabled);
+	ImGui::Checkbox(("##" + channelName + "_echo").c_str(), &channel_group->bEcho);
 
-	if (echo_enabled) {
+	if (channel_group->bEcho && !channel_group->echo_enabled) {
+		channel_group->echo_enabled = true;
 		if (!fmod_manager_->add_dsp_effect(channelName, "echo")) {
 			return false;
 		}
 	}
-	else {
+	else if (!channel_group->bEcho && channel_group->echo_enabled) {
+		channel_group->echo_enabled = false;
 		if (!fmod_manager_->remove_dsp_effect(channelName, "echo")) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool SoundUI::DisplayChannelFader(std::string channelName) {
+	FModManager::ChannelGroup* channel_group;
+	if (!fmod_manager_->find_channel_group(channelName, &channel_group)) {
+		return false;
+	}
+
+	ImGui::SliderFloat((channelName + " fader").c_str(), &channel_group->fader, 0.5f, 2.0f, "%.2f");
+	FMOD::DSP* dsp;
+	if (!fmod_manager_->get_dsp("fader", &dsp)) {
+		return false;
+	}
+	dsp->setParameterFloat(0, channel_group->fader);
+
+	ImGui::SameLine();
+	ImGui::Checkbox(("##" + channelName + "_fader").c_str(), &channel_group->bFader);
+
+	if (channel_group->bFader && !channel_group->fader_enabled) {
+		channel_group->fader_enabled = true;
+		if (!fmod_manager_->add_dsp_effect(channelName, "fader")) {
+			return false;
+		}
+	}
+	else if (!channel_group->bFader && channel_group->fader_enabled) {
+		channel_group->fader_enabled = false;
+		if (!fmod_manager_->remove_dsp_effect(channelName, "fader")) {
 			return false;
 		}
 	}
@@ -127,6 +169,10 @@ void SoundUI::render()
 		// Something went wrong, what now?
 	}
 
+	if (!DisplayChannelPitch("master")) {
+		// Something went wrong, what now?
+	}
+
 	if (!DisplayChannelPitchDSP("master")) {
 		// Something went wrong, what now?
 	}
@@ -135,13 +181,41 @@ void SoundUI::render()
 		// Something went wrong, what now?
 	}
 
+	if (!DisplayChannelFader("master")) {
+		// Something went wrong, what now?
+	}	
+
 	ImGui::BulletText("Music Channel");
 	if (!DisplayChannelVolume("music")) {
 		// Something went wrong, what now?
 	}
 
+	if (!DisplayChannelPitch("music")) {
+		// Something went wrong, what now?
+	}
+
+	if (!DisplayChannelEcho("music")) {
+		// Something went wrong, what now?
+	}
+
+	if (!DisplayChannelFader("music")) {
+		// Something went wrong, what now?
+	}
+
 	ImGui::BulletText("Sound Effect Channel");
 	if (!DisplayChannelVolume("fx")) {
+		// Something went wrong, what now?
+	}
+
+	if (!DisplayChannelPitch("fx")) {
+		// Something went wrong, what now?
+	}
+
+	if (!DisplayChannelEcho("fx")) {
+		// Something went wrong, what now?
+	}
+
+	if (!DisplayChannelFader("fx")) {
 		// Something went wrong, what now?
 	}
 

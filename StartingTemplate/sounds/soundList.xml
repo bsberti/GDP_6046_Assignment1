@@ -4,11 +4,6 @@
     <path>./sounds/music/piano-background-1.wav</path>
     <mode>2</mode>
   </sound>
-  <sound category="music">
-    <name>bg</name>
-    <path>./sounds/music/bg.wav</path>
-    <mode>2</mode>
-  </sound>
   <sound category="effect">
     <name>card-shuffling</name>
     <path>./sounds/fx/card-shuffling.mp3</path>
@@ -22,6 +17,26 @@
   <sound category="effect">
     <name>victory</name>
     <path>./sounds/fx/victory.mp3</path>
+    <mode>0</mode>
+  </sound>
+  <sound category="effect">
+    <name>game-over</name>
+    <path>./sounds/fx/game-over.mp3</path>
+    <mode>0</mode>
+  </sound>
+  <sound category="effect">
+    <name>whistle-down</name>
+    <path>./sounds/fx/whistle-down.mp3</path>
+    <mode>0</mode>
+  </sound>
+  <sound category="effect">
+    <name>whistle-up</name>
+    <path>./sounds/fx/whistle-up.mp3</path>
+    <mode>0</mode>
+  </sound>
+  <sound category="effect">
+    <name>wrong</name>
+    <path>./sounds/fx/wrong.mp3</path>
     <mode>0</mode>
   </sound>
 </soundlist>

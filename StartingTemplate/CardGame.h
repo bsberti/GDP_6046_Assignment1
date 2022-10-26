@@ -20,15 +20,20 @@ public:
 	void GameOver();
 	void PlayerLossLifes();
 
-	bool HigherGuess();
-	bool LowerGuess();
+	int HigherGuess();
+	int LowerGuess();
 
 	int currentCard;
 	int guessCard;
+	bool playerGuessing;
+	int playerPoints;
 private:
 
 	int minCard;
 	int maxCard;
 
 	int lifes;
+
+	//void loadGameState();
+	//void loadGameLanguage();
 };

@@ -3,9 +3,20 @@
 
 bool gameOver = false;
 
-CardGame::CardGame() : lifes(3), currentCard(0), guessCard(0), minCard(0), maxCard(0) {
-
+CardGame::CardGame() : lifes(3), 
+currentCard(0), 
+guessCard(0), 
+minCard(0), 
+maxCard(0), 
+playerGuessing(false), 
+playerPoints(0) {
+	//loadGameState();
+	//loadGameLanguage();
 }
+
+//void CardGame::loadGameState() {}
+
+//void CardGame::loadGameLanguage() {}
 
 void header() {
 	std::cout << ""
@@ -56,48 +67,55 @@ void CardGame::RandomizeCards() {
 }
 
 void CardGame::ShowCards() {
-	std::cout << "First Card:\n";
+	std::cout << "First Card:\t";
 	std::cout << currentCard << "\n";
-	std::cout << "Second Card:\n";
-	std::cout << "???\n\n";
+	std::cout << "Second Card:\t ? ? ? \n\n";
 	std::cout << "Now guess if the second card is higher or lower than the first card\n";
 }
 
 void CardGame::Victory() {
-	std::cout << "CONGRATULATIONS, you win!!!\n";
+	std::cout << "CONGRATULATIONS, right guess!!!\n";
 }
 
 void CardGame::GameOver() {
 	std::cout << "GAME OVER!!!\n";
 }
 
-bool CardGame::HigherGuess() {
+int CardGame::HigherGuess() {
+	playerGuessing = false;
 	if (currentCard < guessCard) {
 		Victory();
-		return true;
+		return 0;
 	}	
 	else {
+		playerGuessing = true;
 		lifes -= 1;
 		PlayerLossLifes();
-		if (lifes <= 0)
+		if (lifes <= 0) {
 			GameOver();
+			return 2;
+		}
 
-		return false;
+		return 1;
 	}
 }
 
-bool CardGame::LowerGuess() {
+int CardGame::LowerGuess() {
+	playerGuessing = false;
 	if (currentCard > guessCard) {
 		Victory();
-		return true;
+		return 0;
 	}
 	else {
+		playerGuessing = true;
 		lifes -= 1;
 		PlayerLossLifes();
-		if (lifes <= 0)
+		if (lifes <= 0) {
 			GameOver();
+			return 2;
+		}
 
-		return false;
+		return 1;
 	}
 		
 }
@@ -108,6 +126,10 @@ void CardGame::Initialize(int minCard, int maxCard) {
 
 	this->minCard = minCard;
 	this->maxCard = maxCard;
+
+	RandomizeCards();
+	ShowCards();
+	playerGuessing = true;
 }
 
 void CardGame::Destroy() {
@@ -118,6 +140,8 @@ void CardGame::StartNewGame(int minCard, int maxCard) {
 	header();
 	howToPlay();
 
+	playerGuessing = false;
+
 	this->minCard = minCard;
 	this->maxCard = maxCard;
 }
@@ -125,8 +149,14 @@ void CardGame::StartNewGame(int minCard, int maxCard) {
 void CardGame::Shuffle() {
 	//Show one card and ask for guess
 
-	RandomizeCards();
-	ShowCards();
+	if (!playerGuessing) {
+		RandomizeCards();
+		ShowCards();
+		playerGuessing = true;
+	}
+	else {
+		std::cout << "Now guess if the second card is higher or lower than the first card\n";
+	}
 }
 
 void CardGame::DisplayTextToUser(const std::string& text) {
