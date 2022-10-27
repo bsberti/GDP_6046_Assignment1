@@ -93,4 +93,8 @@
   <ItemGroup>
     <None Include="imgui.ini" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="gameLanguage.xml" />
+    <Xml Include="gameSave.xml" />
+  </ItemGroup>
 </Project>

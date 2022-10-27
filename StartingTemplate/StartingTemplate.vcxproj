@@ -183,6 +183,10 @@
   <ItemGroup>
     <None Include="imgui.ini" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="gameLanguage.xml" />
+    <Xml Include="gameSave.xml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -156,8 +156,7 @@ bool SoundUI::DisplayChannelFader(std::string channelName) {
 	return true;
 }
 
-void SoundUI::render()
-{
+void SoundUI::render() {
 	//setup ui structure
 	ImGui::Begin("Game Audio Settings");
 	ImGui::BulletText("Master Channel");

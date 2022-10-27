@@ -10,7 +10,7 @@
 #include "SoundUI.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
-
+#include <iostream>
 #include "CardGame.h"
 
 GLFWwindow* window;
@@ -26,19 +26,32 @@ CardGame g_CardGame;
 
 void key_callback(GLFWwindow* window, const int key, int scancode, const int action, const int mods)
 {
-	if(key == GLFW_KEY_SPACE && action == GLFW_PRESS)
-	{
+	if(key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
 		if (!g_CardGame.playerGuessing) {
 			g_CardGame.Shuffle();
 			fmod_manager.play_sound("card-shuffling", "fx");
 		}
 	}
 
-	if (key == GLFW_KEY_UP && action == GLFW_PRESS)
-	{
+	if (key == GLFW_KEY_S && action == GLFW_PRESS) {
+		
+	}
+
+	if (key == GLFW_KEY_S && action == GLFW_PRESS) {
+		g_CardGame.SaveGame();
+	}
+
+	if (key == GLFW_KEY_UP && action == GLFW_PRESS) {
 		if (g_CardGame.playerGuessing) {
 			fmod_manager.play_sound("whistle-up", "fx");
-			Sleep(2000);
+			std::cout << "Player guess: Higher!\n";
+			Sleep(500);
+			std::cout << ". ";
+			Sleep(500);
+			std::cout << ". ";
+			Sleep(500);
+			std::cout << ". ";
+			Sleep(500);
 			// Player is beting higher card
 			int result = g_CardGame.HigherGuess();
 			if (result == 0) {
@@ -54,11 +67,17 @@ void key_callback(GLFWwindow* window, const int key, int scancode, const int act
 		}
 	}
 	
-	if (key == GLFW_KEY_DOWN && action == GLFW_PRESS)
-	{
+	if (key == GLFW_KEY_DOWN && action == GLFW_PRESS) {
 		if (g_CardGame.playerGuessing) {
 			fmod_manager.play_sound("whistle-down", "fx");
-			Sleep(2000);
+			std::cout << "Player guess: Lower!\n";
+			Sleep(500);
+			std::cout << ". ";
+			Sleep(500);
+			std::cout << ". ";
+			Sleep(500);
+			std::cout << ". ";
+			Sleep(500);
 			// Player is beting lower card
 			int result = g_CardGame.LowerGuess();
 			if (result == 0) {

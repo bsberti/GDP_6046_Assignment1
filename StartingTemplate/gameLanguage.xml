@@ -1,0 +1,201 @@
+<gameLanguage>
+  <imput language="English">
+    <header>
+       _______  _______  ______   ______     _______  _______  __   __  _______    __ 
+      |       ||   _   ||    _ | |      |   |       ||   _   ||  |_|  ||       |  |  |
+      |       ||  |_|  ||   | || |  _    |  |    ___||  |_|  ||       ||    ___|  |  |
+      |      _||       ||   |_||_| | |   |  |   | __ |       ||       ||   |___   |  |
+      |     |_ |       ||    __  | |_|   |  |   ||  ||       ||       ||    ___|  |__|
+      |       ||   _   ||   |  | |       |  |   |_| ||   _   || ||_|| ||   |___    __ 
+      |_______||__| |__||___|  |_|______|   |_______||__| |__||_|   |_||_______|  |__|
+    
+    </header>
+    <howToPlay> 
+    >>>> HOW TO PLAY >>>>
+Press SPACEBAR to shuffle de deck
+Press N to Start a New Game
+Press S to Save your Game
+Press UP ARROW to guess higher card
+Press DOWN ARROW to guess lower card
+Press I to see the game Rules and Commands again
+    </howToPlay>
+    <gameRules>
+    >>>> GAME RULES >>>>
+Step 1 - The program will select one card and show it.
+Step 2 - The program will select other card and hide the other one.
+Step 3 - You need to guess the if the number is higher or lower.
+
+You have 3 lifes to guess the card
+Each right guess grants you 1 point
+    </gameRules>
+    <showCards>
+  First Card:   %d
+  Second Card:  ?? 
+Now guess if the second card is higher or lower than the first card
+    </showCards>
+    <victory>
+CONGRATULATIONS, right guess!!!
+You have %d TOTAL POINTS!
+    </victory>
+    <gameOver>
+GAME OVER!!!
+    </gameOver>
+    <gameSaved>
+Game State saved successfully
+    </gameSaved>
+    <guess>
+Now guess if the second card is higher or lower than the first card
+    </guess>
+    <wrongGuess>
+Wrong guess!!! You have %d more attempts!
+    </wrongGuess>
+  </imput>
+  <imput language="Portuguese">
+    <header>
+      ""
+      "  ____   ___    ____   ___       ___      ___         __   ____  ____  ______   ____  _____  \n"
+      " |    | /   \  /    | /   \     |   \    /  _]       /  ] /    ||    \|      | /    |/ ___/  \n"
+      " |__  ||     ||   __||     |    |    \  /  [_       /  / |  o  ||  D  )      ||  o  (   \_   \n"
+      " __|  ||  O  ||  |  ||  O  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||     |\__  |  \n"
+      "/  |  ||     ||  |_ ||     |    |     ||   [_     /   \_ |  _  ||    \  |  |  |  _  |/  \ |  \n"
+      "\  `  ||     ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |  |  |\    |  \n"
+      " \____j \___/ |___,_| \___/     |_____||_____|     \____||__|__||__|\_| |__|  |__|__| \___|  \n"
+      "";
+    </header>
+    <howToPlay>
+      "\n   COMO JOGAR   \nPressione a BARRA DE ESPACO para embaralhar o baralho\nPressione N para comecar um novo jogo\nPressione S para salvar o jogo\nPressione SETA PARA CIMA para apostar numa carta maior\nPressione SETA PARA BAIXO para apostar numa carta menor\nPressione I para ver as Regras e os Comandos novamente\n"
+    </howToPlay>
+    <gameRules>
+      "\n   REGRAS DO JOGO   \nPasso 1 - O programa vai selecionar e mostrar a primeira carta.\nPasso 2 - O programa vai selecionar e esconder a próxima carta\nPasso 3 - Adivinhe se o número da carta é maior ou menor que a primeira\n\nVocê tem 3 vidas para acertar\nCada acerto te concede 1 ponto\n"
+    </gameRules>
+    <showCards>
+      "\nPrimeira Carta:\t%d\nSegunda Carta:\t ? \nAgora tente adivinhar se a segunda carta é maior ou menor que a primeira\n"
+    </showCards>
+    <victory>
+      "PARABÉNS, acertou!!!\nVocê tem %d PONTOS TOTAIS!"
+    </victory>
+    <gameOver>
+      "FIM DE JOGO!!!\n"
+    </gameOver>
+    <gameSaved>
+      "\n\nEstado do jogo salvo com sucesso\n"
+    </gameSaved>
+    <guess>
+      "Agora tente adivinhar se a segunda carta e maior ou menor que a primeira\n"
+    </guess>
+    <wrongGuess>
+      "Errou!!! Você tem %d mais hipóteses!\n"
+    </wrongGuess>
+  </imput>
+  <imput language="Spanish">
+    <header>
+      ""
+      "   ____  __ __    ___   ____   ___       ___      ___         __   ____  ____  ______   ____  _____  \n"
+      "  |    ||  |  |  /  _] /    | /   \     |   \    /  _]       /  ] /    ||    \|      | /    |/ ___/  \n"
+      "  |__  ||  |  | /  [_ |   __||     |    |    \  /  [_       /  / |  o  ||  D  )      ||  o  (   \_   \n"
+      "  __|  ||  |  ||    _]|  |  ||  O  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||     |\__  |  \n"
+      " /  |  ||  :  ||   [_ |  |_ ||     |    |     ||   [_     /   \_ |  _  ||    \  |  |  |  _  |/  \ |  \n"
+      " \  `  ||     ||     ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |  |  |\    |  \n"
+      "  \____j \__,_||_____||___,_| \___/     |_____||_____|     \____||__|__||__|\_| |__|  |__|__| \___|  \n"
+      "";
+    </header>
+    <howToPlay>
+      "\n   CÓMO JUGAR   \nPresiona la BARRA ESPACIADORA para barajar el mazo\nPresione N para iniciar un nuevo juego\nPresiona S para guardar tu juego\nPresiona la FLECHA ARRIBA para adivinar la carta más alta\nPresiona la FLECHA ABAJO para adivinar la carta inferior\nPresiona I para ver las Reglas y Comandos del juego nuevamente\n"
+    </howToPlay>
+    <gameRules>
+      "\n   REGLAS DEL JUEGO   \nPaso 1: el programa seleccionará una tarjeta y la mostrará.\nPaso 2: el programa seleccionará otra tarjeta y ocultará la otra\nPaso 3: debe adivinar si el número es mayor o menor\n\nTienes 3 vidas para adivinar la carta\nCada acierto te otorga 1 punto\n"
+    </gameRules>
+    <showCards>
+      "\nPrimera carta:\t%d\nSegunda carta:\t ? \nAhora adivina si la segunda carta es más alta o más baja que la primera carta.\n"
+    </showCards>
+    <victory>
+      "¡¡¡FELICIDADES, acierta!!!\n¡Tienes %d PUNTOS TOTALES!"
+    </victory>
+    <gameOver>
+      "JUEGO TERMINADO!!!\n"
+    </gameOver>
+    <gameSaved>
+      "\n\nEstado del juego guardado con éxito\n"
+    </gameSaved>
+    <guess>
+      "Ahora adivina si la segunda carta es más alta o más baja que la primera carta.\n"
+    </guess>
+    <wrongGuess>
+      "¡¡¡Suposición equivocada!!! ¡Tienes %d intentos más!\n"
+    </wrongGuess>
+  </imput>
+  <imput language="Deutsch">
+    <header>
+      ""
+      "__  _   ____  ____  ______    ___  ____   _____ ____ ____    ___  _       \n"
+      "|  |/ ] /    ||    \|      |  /  _]|    \ / ___/|    \    |  /  _]| |     \n"
+      "|  ' / |  o  ||  D  )      | /  [_ |  _  (   \_ |  o  )  |  /  [_ | |     \n"
+      "|    \ |     ||    /|_|  |_||    _]|  |  |\__  ||   _/|  | |    _]| |___  \n"
+      "|     ||  _  ||    \  |  |  |   [_ |  |  |/  \ ||  |  |  | |   [_ |     | \n"
+      "|  .  ||  |  ||  .  \ |  |  |     ||  |  |\    ||  |  |  | |     ||     | \n"
+      "|__|\_||__|__||__|\_| |__|  |_____||__|__| \___||__| |____||_____||_____| \n"
+      "";
+    </header>
+    <howToPlay>
+      "\n   SPIELANLEITUNG  \nDrücken Sie die LEERTASTE, um das Deck zu mischen\nDrücken Sie N, um ein neues Spiel zu starten\nDrücken Sie S, um Ihr Spiel zu speichern\nDrücken Sie die NACH-OBEN-TASTE, um eine höhere Karte zu erraten\nDrücken Sie den NACH-UNTEN-PFEIL, um die niedrigere Karte zu erraten\nDrücken Sie I, um die Spielregeln und -befehle erneut anzuzeigen\n"
+    </howToPlay>
+    <gameRules>
+      "\n   SPIELREGELN   \nSchritt 1 - Das Programm wählt eine Karte aus und zeigt sie an.\nSchritt 2 - Das Programm wählt eine andere Karte aus und versteckt die andere.\nSchritt 3 - Sie müssen erraten, ob die Zahl höher oder niedriger ist.\n\nSie haben 3 Leben, um die Karte zu erraten\nJeder richtige Tipp bringt Ihnen 1 Punkt\n"
+    </gameRules>
+    <showCards>
+      "\nErste Karte:\t%d\nZweite Karte:\t ? \nRaten Sie nun, ob die zweite Karte höher oder niedriger als die erste Karte ist\n"
+    </showCards>
+    <victory>
+      "HERZLICHEN GLÜCKWUNSCH, richtig geraten!!!\nSie haben %d GESAMTPUNKTE!"
+    </victory>
+    <gameOver>
+      "SPIEL IST AUS!!!\n"
+    </gameOver>
+    <gameSaved>
+      "\n\nSpielstatus erfolgreich gespeichert\n"
+    </gameSaved>
+    <guess>
+      "Raten Sie nun, ob die zweite Karte höher oder niedriger als die erste Karte ist\n"
+    </guess>
+    <wrongGuess>
+      "Falsch geraten!!! Sie haben %d weitere Versuche!\n"
+    </wrongGuess>
+  </imput>
+  <imput language="French">
+    <header>
+      ""
+      "  ____    ___  __ __      ___      ___         __   ____  ____  ______    ___  _____   \n"
+      " |    |  /  _]|  |  |    |   \    /  _]       /  ] /    ||    \|      |  /  _]/ ___/   \n"
+      " |__  | /  [_ |  |  |    |    \  /  [_       /  / |  o  ||  D  )      | /  [_(   \_    \n"
+      " __|  ||    _]|  |  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||    _]\__  |   \n"
+      "/  |  ||   [_ |  :  |    |     ||   [_     /   \_ |  _  ||    \  |  |  |   [_ /  \ |   \n"
+      "\  `  ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |     |\    |   \n"
+      " \____j|_____| \__,_|    |_____||_____|     \____||__|__||__|\_| |__|  |_____| \___|   \n"
+      "";
+    </header>
+    <howToPlay>
+      "\n    COMMENT JOUER   \nAppuyez sur la barre d'espace pour mélanger le jeu\nAppuyez sur N pour démarrer une nouvelle partie\nAppuyez sur S pour sauvegarder votre partie\nAppuyez sur la flèche vers le haut pour deviner la carte la plus élevée\nAppuyez sur la flèche vers le bas pour deviner la carte inférieure\nAppuyez sur I pour revoir les règles et commandes du jeu\n"
+    </howToPlay>
+    <gameRules>
+      "\n    REGLES DU JEU   \nÉtape 1 - Le programme sélectionnera une carte et l'affichera.\nÉtape 2 - Le programme sélectionnera une autre carte et masquera l'autre.\nÉtape 3 - Vous devez deviner si le nombre est supérieur ou inférieur\n\nVous avez 3 vies pour deviner la carte\nChaque bonne estimation vous rapporte 1 point\n"
+    </gameRules>
+    <showCards>
+      "\nPremière carte:\t%d\nDeuxième carte:\t ? \nDevinez maintenant si la deuxième carte est supérieure ou inférieure à la première carte\n"
+    </showCards>
+    <victory>
+      "FÉLICITATIONS, bonne estimation !!!\nVous avez %d POINTS AU TOTAL!"
+    </victory>
+    <gameOver>
+      "Jeu terminé!!!\n"
+    </gameOver>
+    <gameSaved>
+      "\n\nÉtat du jeu enregistré avec succès\n"
+    </gameSaved>
+    <guess>
+      "Devinez maintenant si la deuxième carte est supérieure ou inférieure à la première carte\n"
+    </guess>
+    <wrongGuess>
+      "Mauvaise supposition !!! Vous avez %d essais en plus !\n"
+    </wrongGuess>
+  </imput>
+</gameLanguage>

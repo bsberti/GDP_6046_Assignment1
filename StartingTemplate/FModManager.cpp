@@ -94,6 +94,7 @@ int FModManager::LoadSounds() {
 		//create sounds object
 		if (!create_sound(currentSound->name, currentSound->path, currentSound->mode))
 			return -5;
+
 	}
 
 	return 0;
