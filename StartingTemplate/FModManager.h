@@ -42,6 +42,8 @@ public:
 		int mode;
 	};
 
+	FMOD::Channel* bgChannel;
+
 protected:
 	FMOD_RESULT last_result_;
 	FMOD::System* system_;
@@ -56,6 +58,8 @@ protected:
 	bool is_okay(const bool show_error = true) const;
 
 public:
+	int choosenAudio;
+
 	//lifecycle
 	FModManager();
 	bool Initialize(const int number_of_channels, const int system_flags);
@@ -80,6 +84,7 @@ public:
 	//sounds
 	bool create_sound(const std::string& name, const std::string& path, FMOD_MODE mode);
 	bool play_sound(const std::string& sound_name, const std::string& channel_group_name);
+	unsigned int getSoundPosition(const std::string& sound_name, const std::string& channel_group_name);
 
 	//dsp
 	bool create_dsp(const std::string& name, FMOD_DSP_TYPE dsp_type, const float value);

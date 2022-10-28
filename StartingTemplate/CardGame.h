@@ -21,6 +21,8 @@ public:
 	void GameOver();
 	void PlayerLossLifes();
 
+	void loadGameLanguage();
+
 	int HigherGuess();
 	int LowerGuess();
 
@@ -29,6 +31,7 @@ public:
 	bool playerGuessing;
 	int playerPoints;
 
+	std::string choosenLanguage;
 
 private:
 
@@ -37,7 +40,6 @@ private:
 
 	int lifes;
 
-	void chooseGameLanguage();
 	void showHeader();
 	void showGameInfo();
 	void showHowToPlay();
@@ -56,8 +58,5 @@ private:
 	std::string guess;
 	std::string wrongGuess;
 
-	std::string choosenLanguage;
-
 	void loadGameState();
-	void loadGameLanguage();
 };

@@ -21,7 +21,6 @@ constexpr int max_channels = 255;
 
 //initialize our sound manager
 FModManager fmod_manager;
-bool compressed;
 CardGame g_CardGame;
 
 void key_callback(GLFWwindow* window, const int key, int scancode, const int action, const int mods)
@@ -94,17 +93,69 @@ void key_callback(GLFWwindow* window, const int key, int scancode, const int act
 	}
 }
 
-int main(int argc, char* argv[]) {
-	compressed = true;
-	if (argc > 1) {
-		if (argv[1] != NULL) {
-			printf("Argument received");
-			sscanf_s(argv[1], "%b", &compressed);
-			printf("compressed = %b\n", compressed);
-		}
+int InitializeProject() {
+	std::cout << "Please select game language:\n";
+	std::cout << "1 - English\n";
+	std::cout << "2 - Português\n";
+	std::cout << "3 - Español\n";
+	std::cout << "4 - Deutsch\n";
+	std::cout << "5 - Français\n";
+
+	int playerChoice;
+	std::cin >> playerChoice;
+
+	switch (playerChoice) {
+	case 1:
+		g_CardGame.choosenLanguage = "English";
+		break;
+	case 2:
+		g_CardGame.choosenLanguage = "Portuguese";
+		break;
+	case 3:
+		g_CardGame.choosenLanguage = "Spanish";
+		break;
+	case 4:
+		g_CardGame.choosenLanguage = "Deutsch";
+		break;
+	case 5:
+		g_CardGame.choosenLanguage = "French";
+		break;
+	default:
+		break;
 	}
 
-	//initialize glfw/glad
+	std::cout << "Please select audio:\n";
+	std::cout << "1 - Compact (mp3)\n";
+	std::cout << "2 - Uncompact (wav)\n";
+
+	std::cin >> fmod_manager.choosenAudio;
+
+	// Load XML soundList and create sounds
+	if (fmod_manager.LoadSounds() != 0) {
+		return -5;
+	}
+
+	system("CLS");
+	g_CardGame.loadGameLanguage();
+
+	return 0;
+}
+
+int main(int argc, char* argv[]) {
+	//initialize fmod with max channels
+	if (!fmod_manager.Initialize(max_channels, FMOD_INIT_NORMAL))
+		return -1;
+
+	if (InitializeProject() != 0)
+		return -5;
+
+	// Create sound ui
+	SoundUI sound_ui(&fmod_manager);
+
+	// Initialize Game
+	g_CardGame.Initialize(1, 10);
+
+	// Initialize glfw/glad
 	glfwInit();
 	window = glfwCreateWindow(800, 600, "INFO-6064", nullptr, nullptr);
 
@@ -133,9 +184,7 @@ int main(int argc, char* argv[]) {
 	//imgui style (dark mode for the win)
 	ImGui::StyleColorsDark();
 
-	//initialize fmod with max channels
-	if (!fmod_manager.Initialize(max_channels, FMOD_INIT_NORMAL))
-		return -1;
+	
 
 	//create channel groups
 	if (
@@ -150,11 +199,6 @@ int main(int argc, char* argv[]) {
 	//set parents for channel groups
 	if(!fmod_manager.set_channel_group_parent("music", "master") || ! fmod_manager.set_channel_group_parent("fx", "master"))
 		return -4;
-
-	// Load XML soundList and create sounds
-	if (fmod_manager.LoadSounds() != 0) {
-		return -5;
-	}
 	
 	//play our bg sound
 	if(!fmod_manager.play_sound("piano-bg", "music"))
@@ -166,12 +210,6 @@ int main(int argc, char* argv[]) {
 		!fmod_manager.create_dsp("dsp_pitch", FMOD_DSP_TYPE_PITCHSHIFT, 1.0f))
 		return -7;
 
-
-
-	//create sound ui
-	SoundUI sound_ui(&fmod_manager);
-
-	g_CardGame.Initialize(1, 10);
 
 	//game loop
 	while(!glfwWindowShouldClose(window)) {

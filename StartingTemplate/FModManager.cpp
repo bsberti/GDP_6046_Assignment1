@@ -1,5 +1,5 @@
 ﻿#include "FModManager.h"
-
+#include <iostream>
 
 
 bool FModManager::is_okay(const bool show_error) const
@@ -84,11 +84,17 @@ int FModManager::LoadSounds() {
 			if (currentNodeName == "name")
 				currentSound->name = soundInfoNode.child_value();
 
-			if (currentNodeName == "path")
-				currentSound->path = soundInfoNode.child_value();
-
 			if (currentNodeName == "mode")
 				currentSound->mode = std::stoi(soundInfoNode.child_value());
+
+			if (choosenAudio == 1) {
+				if (currentNodeName == "mp3")
+					currentSound->path = soundInfoNode.child_value();
+			}
+			else {
+				if (currentNodeName == "wav")
+					currentSound->path = soundInfoNode.child_value();
+			}
 		}
 
 		//create sounds object
@@ -245,27 +251,31 @@ bool FModManager::create_sound(const std::string& name, const std::string& path,
 	return true;
 }
 
+unsigned int FModManager::getSoundPosition(const std::string& sound_name, const std::string& channel_group_name) {
+	
+	unsigned int i = 0;
+	bgChannel->getPosition(&i, FMOD_TIMEUNIT_MS);
+
+	return i;
+}
+
 bool FModManager::play_sound(const std::string& sound_name, const std::string& channel_group_name) {
 	const auto sound_iterator = mSounds.find(sound_name);
 	const auto channel_group_iterator = mChannelGroups.find(channel_group_name);
 
-	if (sound_iterator == mSounds.end() || channel_group_iterator == mChannelGroups.end())
-	{
+	if (sound_iterator == mSounds.end() || channel_group_iterator == mChannelGroups.end()) {
 		return false;
 	}
 
-	FMOD::Channel* channel;
-	last_result_ = system_->playSound(sound_iterator->second, channel_group_iterator->second->group_ptr, true, &channel);
-	if (!is_okay())
-	{
+	last_result_ = system_->playSound(sound_iterator->second, channel_group_iterator->second->group_ptr, true, &bgChannel);
+	if (!is_okay()) {
 		return false;
 	}
 
 	//more stuff to come here next class
 
-	last_result_ = (*channel).setPaused(false);
-	if (!is_okay())
-	{
+	last_result_ = (*bgChannel).setPaused(false);
+	if (!is_okay()) {
 		return false;
 	}
 

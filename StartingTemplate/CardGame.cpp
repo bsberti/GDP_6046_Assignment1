@@ -216,42 +216,7 @@ void CardGame::showGameInfo() {
 	showGameRules();
 }
 
-void CardGame::chooseGameLanguage() {
-	std::cout << "Please select game language:\n";
-	std::cout << "1 - English\n";
-	std::cout << "2 - Portuguese\n";
-	std::cout << "3 - Spanish\n";
-	std::cout << "4 - Deutsch\n";
-	std::cout << "5 - French\n";
-
-	int playerChoice;
-	std::cin >> playerChoice;
-
-	switch (playerChoice) {
-	case 1:
-		choosenLanguage = "English";
-		break;
-	case 2:
-		choosenLanguage = "Portuguese";
-		break;
-	case 3:
-		choosenLanguage = "Spanish";
-		break;
-	case 4:
-		choosenLanguage = "Deutsch";
-		break;
-	case 5:
-		choosenLanguage = "French";
-		break;
-	default:
-		break;
-	}
-	system("CLS");
-	loadGameLanguage();
-}
-
 void CardGame::Initialize(int minCard, int maxCard) {
-	chooseGameLanguage();
 	showGameInfo();
 
 	this->minCard = minCard;

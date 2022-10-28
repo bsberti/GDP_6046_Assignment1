@@ -1,42 +1,50 @@
 <soundlist>
   <sound category="music">
     <name>piano-bg</name>
-    <path>./sounds/music/piano-background-1.wav</path>
+    <wav>./sounds/music/piano-background-1.wav</wav>
+    <mp3>./sounds/music/piano-background-1.mp3</mp3>
     <mode>2</mode>
   </sound>
   <sound category="effect">
     <name>card-shuffling</name>
-    <path>./sounds/fx/card-shuffling.mp3</path>
+    <wav>./sounds/fx/card-shuffling.wav</wav>
+    <mp3>./sounds/fx/card-shuffling.mp3</mp3>
     <mode>0</mode>
   </sound>
   <sound category="effect">
     <name>draw-card</name>
-    <path>./sounds/fx/draw-card.wav</path>
+    <wav>./sounds/fx/draw-card.wav</wav>
+    <mp3>./sounds/fx/draw-card.wav</mp3>
     <mode>0</mode>
   </sound>
   <sound category="effect">
     <name>victory</name>
-    <path>./sounds/fx/victory.mp3</path>
+    <wav>./sounds/fx/victory.wav</wav>
+    <mp3>./sounds/fx/victory.mp3</mp3>
     <mode>0</mode>
   </sound>
   <sound category="effect">
     <name>game-over</name>
-    <path>./sounds/fx/game-over.mp3</path>
+    <wav>./sounds/fx/game-over.wav</wav>
+    <mp3>./sounds/fx/game-over.mp3</mp3>
     <mode>0</mode>
   </sound>
   <sound category="effect">
     <name>whistle-down</name>
-    <path>./sounds/fx/whistle-down.mp3</path>
+    <wav>./sounds/fx/whistle-down.wav</wav>
+    <mp3>./sounds/fx/whistle-down.mp3</mp3>
     <mode>0</mode>
   </sound>
   <sound category="effect">
     <name>whistle-up</name>
-    <path>./sounds/fx/whistle-up.mp3</path>
+    <wav>./sounds/fx/whistle-up.wav</wav>
+    <mp3>./sounds/fx/whistle-up.mp3</mp3>
     <mode>0</mode>
   </sound>
   <sound category="effect">
     <name>wrong</name>
-    <path>./sounds/fx/wrong.mp3</path>
+    <wav>./sounds/fx/wrong.wav</wav>
+    <mp3>./sounds/fx/wrong.mp3</mp3>
     <mode>0</mode>
   </sound>
 </soundlist>

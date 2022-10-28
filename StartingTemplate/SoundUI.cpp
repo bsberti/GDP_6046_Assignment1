@@ -160,6 +160,7 @@ void SoundUI::render() {
 	//setup ui structure
 	ImGui::Begin("Game Audio Settings");
 	ImGui::BulletText("Master Channel");
+
 	if (!DisplayChannelVolume("master")) {
 		// Something went wrong, what now?
 	}
@@ -188,6 +189,12 @@ void SoundUI::render() {
 	if (!DisplayChannelVolume("music")) {
 		// Something went wrong, what now?
 	}
+
+	unsigned int position = fmod_manager_->getSoundPosition("piano-bg", "master");
+	std::string minuto = std::to_string(position / 1000 / 60);
+	std::string segundo = std::to_string(position / 1000 % 60);
+
+	ImGui::Text(("Time Elapsed: " + minuto + ":" + segundo).c_str());
 
 	if (!DisplayChannelPitch("music")) {
 		// Something went wrong, what now?
