@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
 <gameLanguage>
   <imput language="English">
     <header>
@@ -52,150 +53,202 @@ Wrong guess!!! You have %d more attempts!
   </imput>
   <imput language="Portuguese">
     <header>
-      ""
-      "  ____   ___    ____   ___       ___      ___         __   ____  ____  ______   ____  _____  \n"
-      " |    | /   \  /    | /   \     |   \    /  _]       /  ] /    ||    \|      | /    |/ ___/  \n"
-      " |__  ||     ||   __||     |    |    \  /  [_       /  / |  o  ||  D  )      ||  o  (   \_   \n"
-      " __|  ||  O  ||  |  ||  O  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||     |\__  |  \n"
-      "/  |  ||     ||  |_ ||     |    |     ||   [_     /   \_ |  _  ||    \  |  |  |  _  |/  \ |  \n"
-      "\  `  ||     ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |  |  |\    |  \n"
-      " \____j \___/ |___,_| \___/     |_____||_____|     \____||__|__||__|\_| |__|  |__|__| \___|  \n"
-      "";
+  ____   ___    ____   ___       ___      ___         __   ____  ____  ______   ____  _____ 
+ |    | /   \  /    | /   \     |   \    /  _]       /  ] /    ||    \|      | /    |/ ___/ 
+ |__  ||     ||   __||     |    |    \  /  [_       /  / |  o  ||  D  )      ||  o  (   \_  
+ __|  ||  O  ||  |  ||  O  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||     |\__  | 
+/  |  ||     ||  |_ ||     |    |     ||   [_     /   \_ |  _  ||    \  |  |  |  _  |/  \ | 
+\  `  ||     ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |  |  |\    | 
+ \____j \___/ |___,_| \___/     |_____||_____|     \____||__|__||__|\_| |__|  |__|__| \___| 
+
     </header>
     <howToPlay>
-      "\n   COMO JOGAR   \nPressione a BARRA DE ESPACO para embaralhar o baralho\nPressione N para comecar um novo jogo\nPressione S para salvar o jogo\nPressione SETA PARA CIMA para apostar numa carta maior\nPressione SETA PARA BAIXO para apostar numa carta menor\nPressione I para ver as Regras e os Comandos novamente\n"
+    >>>> COMO JOGAR >>>>
+Pressione a BARRA DE ESPACO para embaralhar o baralho
+Pressione N para comecar um novo jogo
+Pressione S para salvar o jogo
+Pressione SETA PARA CIMA para apostar numa carta maior
+Pressione SETA PARA BAIXO para apostar numa carta menor
+Pressione I para ver as Regras e os Comandos novamente
     </howToPlay>
     <gameRules>
-      "\n   REGRAS DO JOGO   \nPasso 1 - O programa vai selecionar e mostrar a primeira carta.\nPasso 2 - O programa vai selecionar e esconder a prÃ³xima carta\nPasso 3 - Adivinhe se o nÃºmero da carta Ã© maior ou menor que a primeira\n\nVocÃª tem 3 vidas para acertar\nCada acerto te concede 1 ponto\n"
+    >>>> REGRAS DO JOGO >>>>
+Passo 1 - O programa vai selecionar e mostrar a primeira carta.
+Passo 2 - O programa vai selecionar e esconder a próxima carta
+Passo 3 - Adivinhe se o número da carta é maior ou menor que a primeira.
+Você tem 3 vidas para acertar. Cada acerto te concede 1 ponto
     </gameRules>
     <showCards>
-      "\nPrimeira Carta:\t%d\nSegunda Carta:\t ? \nAgora tente adivinhar se a segunda carta Ã© maior ou menor que a primeira\n"
+Primeira Carta:   %d
+Segunda Carta:     ?
+Agora tente adivinhar se a segunda carta é maior ou menor que a primeira
     </showCards>
     <victory>
-      "PARABÃ‰NS, acertou!!!\nVocÃª tem %d PONTOS TOTAIS!"
+PARABÉNS, acertou!!!
+Você tem %d PONTOS TOTAIS!
     </victory>
     <gameOver>
-      "FIM DE JOGO!!!\n"
+FIM DE JOGO!!!
     </gameOver>
     <gameSaved>
-      "\n\nEstado do jogo salvo com sucesso\n"
+Estado do jogo salvo com sucesso
     </gameSaved>
     <guess>
-      "Agora tente adivinhar se a segunda carta e maior ou menor que a primeira\n"
+Agora tente adivinhar se a segunda carta e maior ou menor que a primeira
     </guess>
     <wrongGuess>
-      "Errou!!! VocÃª tem %d mais hipÃ³teses!\n"
+Errou!!! Você tem %d mais hipóteses!
     </wrongGuess>
   </imput>
   <imput language="Spanish">
     <header>
-      ""
-      "   ____  __ __    ___   ____   ___       ___      ___         __   ____  ____  ______   ____  _____  \n"
-      "  |    ||  |  |  /  _] /    | /   \     |   \    /  _]       /  ] /    ||    \|      | /    |/ ___/  \n"
-      "  |__  ||  |  | /  [_ |   __||     |    |    \  /  [_       /  / |  o  ||  D  )      ||  o  (   \_   \n"
-      "  __|  ||  |  ||    _]|  |  ||  O  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||     |\__  |  \n"
-      " /  |  ||  :  ||   [_ |  |_ ||     |    |     ||   [_     /   \_ |  _  ||    \  |  |  |  _  |/  \ |  \n"
-      " \  `  ||     ||     ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |  |  |\    |  \n"
-      "  \____j \__,_||_____||___,_| \___/     |_____||_____|     \____||__|__||__|\_| |__|  |__|__| \___|  \n"
-      "";
+  ____  __ __    ___   ____   ___       ___      ___         __   ____  ____  ______   ____  _____  \n"
+ |    ||  |  |  /  _] /    | /   \     |   \    /  _]       /  ] /    ||    \|      | /    |/ ___/  \n"
+ |__  ||  |  | /  [_ |   __||     |    |    \  /  [_       /  / |  o  ||  D  )      ||  o  (   \_   \n"
+ __|  ||  |  ||    _]|  |  ||  O  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||     |\__  |  \n"
+/  |  ||  :  ||   [_ |  |_ ||     |    |     ||   [_     /   \_ |  _  ||    \  |  |  |  _  |/  \ |  \n"
+\  `  ||     ||     ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |  |  |\    |  \n"
+ \____j \__,_||_____||___,_| \___/     |_____||_____|     \____||__|__||__|\_| |__|  |__|__| \___|  \n"
+
     </header>
     <howToPlay>
-      "\n   CÃ“MO JUGAR   \nPresiona la BARRA ESPACIADORA para barajar el mazo\nPresione N para iniciar un nuevo juego\nPresiona S para guardar tu juego\nPresiona la FLECHA ARRIBA para adivinar la carta mÃ¡s alta\nPresiona la FLECHA ABAJO para adivinar la carta inferior\nPresiona I para ver las Reglas y Comandos del juego nuevamente\n"
+      >>>> CÓMO JUGAR >>>>
+Presiona la BARRA ESPACIADORA para barajar el mazo
+Presione N para iniciar un nuevo juego
+Presiona S para guardar tu juego
+Presiona la FLECHA ARRIBA para adivinar la carta más alta
+Presiona la FLECHA ABAJO para adivinar la carta inferior
+Presiona I para ver las Reglas y Comandos del juego nuevamente
     </howToPlay>
     <gameRules>
-      "\n   REGLAS DEL JUEGO   \nPaso 1: el programa seleccionarÃ¡ una tarjeta y la mostrarÃ¡.\nPaso 2: el programa seleccionarÃ¡ otra tarjeta y ocultarÃ¡ la otra\nPaso 3: debe adivinar si el nÃºmero es mayor o menor\n\nTienes 3 vidas para adivinar la carta\nCada acierto te otorga 1 punto\n"
+      >>>> REGLAS DEL JUEGO >>>>
+Paso 1: el programa seleccionará una tarjeta y la mostrará.
+Paso 2: el programa seleccionará otra tarjeta y ocultará la otra.
+Paso 3: debe adivinar si el número es mayor o menor.
+Tienes 3 vidas para adivinar la carta
+Cada acierto te otorga 1 punto
     </gameRules>
     <showCards>
-      "\nPrimera carta:\t%d\nSegunda carta:\t ? \nAhora adivina si la segunda carta es mÃ¡s alta o mÃ¡s baja que la primera carta.\n"
+Primera carta:    %d
+Segunda carta:     ? 
+Ahora adivina si la segunda carta es más alta o más baja que la primera carta.
     </showCards>
     <victory>
-      "Â¡Â¡Â¡FELICIDADES, acierta!!!\nÂ¡Tienes %d PUNTOS TOTALES!"
+¡¡¡FELICIDADES, acierta!!!
+¡Tienes %d PUNTOS TOTALES!
     </victory>
     <gameOver>
-      "JUEGO TERMINADO!!!\n"
+JUEGO TERMINADO!!!
     </gameOver>
     <gameSaved>
-      "\n\nEstado del juego guardado con Ã©xito\n"
+Estado del juego guardado con éxito
     </gameSaved>
     <guess>
-      "Ahora adivina si la segunda carta es mÃ¡s alta o mÃ¡s baja que la primera carta.\n"
+Ahora adivina si la segunda carta es más alta o más baja que la primera carta.
     </guess>
     <wrongGuess>
-      "Â¡Â¡Â¡SuposiciÃ³n equivocada!!! Â¡Tienes %d intentos mÃ¡s!\n"
+¡¡¡Suposición equivocada!!! 
+¡Tienes %d intentos más!
     </wrongGuess>
   </imput>
   <imput language="Deutsch">
     <header>
-      ""
-      "__  _   ____  ____  ______    ___  ____   _____ ____ ____    ___  _       \n"
-      "|  |/ ] /    ||    \|      |  /  _]|    \ / ___/|    \    |  /  _]| |     \n"
-      "|  ' / |  o  ||  D  )      | /  [_ |  _  (   \_ |  o  )  |  /  [_ | |     \n"
-      "|    \ |     ||    /|_|  |_||    _]|  |  |\__  ||   _/|  | |    _]| |___  \n"
-      "|     ||  _  ||    \  |  |  |   [_ |  |  |/  \ ||  |  |  | |   [_ |     | \n"
-      "|  .  ||  |  ||  .  \ |  |  |     ||  |  |\    ||  |  |  | |     ||     | \n"
-      "|__|\_||__|__||__|\_| |__|  |_____||__|__| \___||__| |____||_____||_____| \n"
-      "";
+ __  _   ____  ____  ______    ___  ____   _____ ____ ____    ___  _       \n"
+|  |/ ] /    ||    \|      |  /  _]|    \ / ___/|    \    |  /  _]| |     \n"
+|  ' / |  o  ||  D  )      | /  [_ |  _  (   \_ |  o  )  |  /  [_ | |     \n"
+|    \ |     ||    /|_|  |_||    _]|  |  |\__  ||   _/|  | |    _]| |___  \n"
+|     ||  _  ||    \  |  |  |   [_ |  |  |/  \ ||  |  |  | |   [_ |     | \n"
+|  .  ||  |  ||  .  \ |  |  |     ||  |  |\    ||  |  |  | |     ||     | \n"
+|__|\_||__|__||__|\_| |__|  |_____||__|__| \___||__| |____||_____||_____| \n"
+
     </header>
     <howToPlay>
-      "\n   SPIELANLEITUNG  \nDrÃ¼cken Sie die LEERTASTE, um das Deck zu mischen\nDrÃ¼cken Sie N, um ein neues Spiel zu starten\nDrÃ¼cken Sie S, um Ihr Spiel zu speichern\nDrÃ¼cken Sie die NACH-OBEN-TASTE, um eine hÃ¶here Karte zu erraten\nDrÃ¼cken Sie den NACH-UNTEN-PFEIL, um die niedrigere Karte zu erraten\nDrÃ¼cken Sie I, um die Spielregeln und -befehle erneut anzuzeigen\n"
+      >>>> SPIELANLEITUNG >>>>
+Drücken Sie die LEERTASTE, um das Deck zu mischen
+Drücken Sie N, um ein neues Spiel zu starten
+Drücken Sie S, um Ihr Spiel zu speichern
+Drücken Sie die NACH-OBEN-TASTE, um eine höhere Karte zu erraten
+Drücken Sie den NACH-UNTEN-PFEIL, um die niedrigere Karte zu erraten
+Drücken Sie I, um die Spielregeln und -befehle erneut anzuzeigen
     </howToPlay>
     <gameRules>
-      "\n   SPIELREGELN   \nSchritt 1 - Das Programm wÃ¤hlt eine Karte aus und zeigt sie an.\nSchritt 2 - Das Programm wÃ¤hlt eine andere Karte aus und versteckt die andere.\nSchritt 3 - Sie mÃ¼ssen erraten, ob die Zahl hÃ¶her oder niedriger ist.\n\nSie haben 3 Leben, um die Karte zu erraten\nJeder richtige Tipp bringt Ihnen 1 Punkt\n"
+      >>>> SPIELREGELN >>>>
+Schritt 1 - Das Programm wählt eine Karte aus und zeigt sie an.
+Schritt 2 - Das Programm wählt eine andere Karte aus und versteckt die andere.
+Schritt 3 - Sie müssen erraten, ob die Zahl höher oder niedriger ist.
+Sie haben 3 Leben, um die Karte zu erraten
+Jeder richtige Tipp bringt Ihnen 1 Punkt
     </gameRules>
     <showCards>
-      "\nErste Karte:\t%d\nZweite Karte:\t ? \nRaten Sie nun, ob die zweite Karte hÃ¶her oder niedriger als die erste Karte ist\n"
+Erste Karte:    %d
+Zweite Karte:    ? 
+Raten Sie nun, ob die zweite Karte höher oder niedriger als die erste Karte ist
     </showCards>
     <victory>
-      "HERZLICHEN GLÃœCKWUNSCH, richtig geraten!!!\nSie haben %d GESAMTPUNKTE!"
+HERZLICHEN GLÜCKWUNSCH, richtig geraten!!!
+Sie haben %d GESAMTPUNKTE!
     </victory>
     <gameOver>
-      "SPIEL IST AUS!!!\n"
+SPIEL IST AUS!!!
     </gameOver>
     <gameSaved>
-      "\n\nSpielstatus erfolgreich gespeichert\n"
+Spielstatus erfolgreich gespeichert
     </gameSaved>
     <guess>
-      "Raten Sie nun, ob die zweite Karte hÃ¶her oder niedriger als die erste Karte ist\n"
+Raten Sie nun, ob die zweite Karte höher oder niedriger als die erste Karte ist
     </guess>
     <wrongGuess>
-      "Falsch geraten!!! Sie haben %d weitere Versuche!\n"
+Falsch geraten!!! Sie haben %d weitere Versuche!
     </wrongGuess>
   </imput>
   <imput language="French">
     <header>
-      ""
-      "  ____    ___  __ __      ___      ___         __   ____  ____  ______    ___  _____   \n"
-      " |    |  /  _]|  |  |    |   \    /  _]       /  ] /    ||    \|      |  /  _]/ ___/   \n"
-      " |__  | /  [_ |  |  |    |    \  /  [_       /  / |  o  ||  D  )      | /  [_(   \_    \n"
-      " __|  ||    _]|  |  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||    _]\__  |   \n"
-      "/  |  ||   [_ |  :  |    |     ||   [_     /   \_ |  _  ||    \  |  |  |   [_ /  \ |   \n"
-      "\  `  ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |     |\    |   \n"
-      " \____j|_____| \__,_|    |_____||_____|     \____||__|__||__|\_| |__|  |_____| \___|   \n"
-      "";
+  ____    ___  __ __      ___      ___         __   ____  ____  ______    ___  _____ 
+ |    |  /  _]|  |  |    |   \    /  _]       /  ] /    ||    \|      |  /  _]/ ___/ 
+ |__  | /  [_ |  |  |    |    \  /  [_       /  / |  o  ||  D  )      | /  [_(   \_  
+ __|  ||    _]|  |  |    |  D  ||    _]     /  /  |     ||    /|_|  |_||    _]\__  | 
+/  |  ||   [_ |  :  |    |     ||   [_     /   \_ |  _  ||    \  |  |  |   [_ /  \ | 
+\  `  ||     ||     |    |     ||     |    \     ||  |  ||  .  \ |  |  |     |\    | 
+ \____j|_____| \__,_|    |_____||_____|     \____||__|__||__|\_| |__|  |_____| \___| 
+
     </header>
     <howToPlay>
-      "\n    COMMENT JOUER   \nAppuyez sur la barre d'espace pour mÃ©langer le jeu\nAppuyez sur N pour dÃ©marrer une nouvelle partie\nAppuyez sur S pour sauvegarder votre partie\nAppuyez sur la flÃ¨che vers le haut pour deviner la carte la plus Ã©levÃ©e\nAppuyez sur la flÃ¨che vers le bas pour deviner la carte infÃ©rieure\nAppuyez sur I pour revoir les rÃ¨gles et commandes du jeu\n"
+      >>>> COMMENT JOUER >>>>
+Appuyez sur la barre d'espace pour mélanger le jeu
+Appuyez sur N pour démarrer une nouvelle partie
+Appuyez sur S pour sauvegarder votre partie
+Appuyez sur la flèche vers le haut pour deviner la carte la plus élevée
+Appuyez sur la flèche vers le bas pour deviner la carte inférieure
+Appuyez sur I pour revoir les règles et commandes du jeu
     </howToPlay>
     <gameRules>
-      "\n    REGLES DU JEU   \nÃ‰tape 1 - Le programme sÃ©lectionnera une carte et l'affichera.\nÃ‰tape 2 - Le programme sÃ©lectionnera une autre carte et masquera l'autre.\nÃ‰tape 3 - Vous devez deviner si le nombre est supÃ©rieur ou infÃ©rieur\n\nVous avez 3 vies pour deviner la carte\nChaque bonne estimation vous rapporte 1 point\n"
+      >>>> REGLES DU JEU >>>>
+Étape 1 - Le programme sélectionnera une carte et l'affichera.
+Étape 2 - Le programme sélectionnera une autre carte et masquera l'autre.
+Étape 3 - Vous devez deviner si le nombre est supérieur ou inférieur
+Vous avez 3 vies pour deviner la carte
+Chaque bonne estimation vous rapporte 1 point
     </gameRules>
     <showCards>
-      "\nPremiÃ¨re carte:\t%d\nDeuxiÃ¨me carte:\t ? \nDevinez maintenant si la deuxiÃ¨me carte est supÃ©rieure ou infÃ©rieure Ã  la premiÃ¨re carte\n"
+Première carte:   %d
+Deuxième carte:    ? 
+Devinez maintenant si la deuxième carte est supérieure ou inférieure à la première carte
     </showCards>
     <victory>
-      "FÃ‰LICITATIONS, bonne estimationÂ !!!\nVous avez %dÂ POINTS AU TOTAL!"
+FÉLICITATIONS, bonne estimation !!!
+Vous avez %d POINTS AU TOTAL!
     </victory>
     <gameOver>
-      "Jeu terminÃ©!!!\n"
+Jeu terminé!!!
     </gameOver>
     <gameSaved>
-      "\n\nÃ‰tat du jeu enregistrÃ© avec succÃ¨s\n"
+État du jeu enregistré avec succès
     </gameSaved>
     <guess>
-      "Devinez maintenant si la deuxiÃ¨me carte est supÃ©rieure ou infÃ©rieure Ã  la premiÃ¨re carte\n"
+Devinez maintenant si la deuxième carte est supérieure ou inférieure à la première carte
     </guess>
     <wrongGuess>
-      "Mauvaise supposition !!! Vous avez %dÂ essais en plusÂ !\n"
+Mauvaise supposition !!! Vous avez %d essais en plus !
     </wrongGuess>
   </imput>
 </gameLanguage>

@@ -32,8 +32,14 @@ void key_callback(GLFWwindow* window, const int key, int scancode, const int act
 		}
 	}
 
-	if (key == GLFW_KEY_S && action == GLFW_PRESS) {
-		
+	if (key == GLFW_KEY_N && action == GLFW_PRESS) {
+		g_CardGame.StartNewGame(1, 10);
+	}
+
+	if (key == GLFW_KEY_I && action == GLFW_PRESS) {
+		if (!g_CardGame.playerGuessing) {
+			g_CardGame.showGameInfo();
+		}
 	}
 
 	if (key == GLFW_KEY_S && action == GLFW_PRESS) {
@@ -96,10 +102,10 @@ void key_callback(GLFWwindow* window, const int key, int scancode, const int act
 int InitializeProject() {
 	std::cout << "Please select game language:\n";
 	std::cout << "1 - English\n";
-	std::cout << "2 - Português\n";
-	std::cout << "3 - Español\n";
+	std::cout << "2 - Portuguese\n";
+	std::cout << "3 - Spanish\n";
 	std::cout << "4 - Deutsch\n";
-	std::cout << "5 - Français\n";
+	std::cout << "5 - French\n";
 
 	int playerChoice;
 	std::cin >> playerChoice;

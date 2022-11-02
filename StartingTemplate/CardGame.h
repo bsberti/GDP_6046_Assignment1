@@ -20,6 +20,7 @@ public:
 	void Victory();
 	void GameOver();
 	void PlayerLossLifes();
+	void showGameInfo();
 
 	void loadGameLanguage();
 
@@ -41,7 +42,6 @@ private:
 	int lifes;
 
 	void showHeader();
-	void showGameInfo();
 	void showHowToPlay();
 	void showGameRules();
 

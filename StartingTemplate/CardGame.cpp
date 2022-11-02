@@ -211,6 +211,7 @@ int CardGame::LowerGuess() {
 }
 
 void CardGame::showGameInfo() {
+	system("CLS");
 	showHeader();
 	showHowToPlay();
 	showGameRules();
